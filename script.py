@@ -8,3 +8,7 @@ class HashMap:
   # HASH FUNCTION | Sum character encodings of each character.
   def hash(self, key):
     hash_code = sum(key.encode())
+    
+  # COMPRESSION FUNCTION
+  def compress(self, hash_code):
+    return hash_code % self.array_size
