@@ -17,3 +17,12 @@ class HashMap:
   def assign(self, key, value):
     array_index = self.compress(self.hash(key))
     self.array[array_index] = [key, value]
+    
+  # GETTER
+  def retrieve(self, key):
+    array_index = self.compress(self.hash(key))
+    payload = self.array[array_index]
+    
+    if payload is not None:
+      if payload[0] == key:
+        return payload[2]
