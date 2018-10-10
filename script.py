@@ -18,7 +18,18 @@ class HashMap:
   # SETTER
   def assign(self, key, value):
     array_index = self.compress(self.hash(key))
-    self.array[array_index] = [key, value]
+    payload = Node([key, value])
+    list_at_array = self.array[array_index]
+    
+    #Check each node in an array's linked list
+    for node in list_at_array:
+      
+      # If a key matches then overwrite value
+      if node[0] == key:
+        node[1] = value
+    
+    # If no key matches then add key-value
+    list_at_array.insert(payload)
     
   # GETTER
   def retrieve(self, key):
