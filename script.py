@@ -12,3 +12,8 @@ class HashMap:
   # COMPRESSION FUNCTION
   def compress(self, hash_code):
     return hash_code % self.array_size
+  
+  # SETTER
+  def assign(self, key, value):
+    array_index = self.compress(self.hash(key))
+    self.array[array_index] = [key, value]
